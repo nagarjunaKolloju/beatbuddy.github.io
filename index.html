@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>BeatBuddy</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+        header, footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 20px;
+            text-align: center;
+        }
+        section {
+            margin: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .screenshot-group {
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 20px;
+        }
+
+        figure {
+          flex-basis: 45%; /* Sets the width of each figure to roughly half of the container width */
+          margin: 10px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          text-align: center;
+          border: 2px solid #eee; /* Adds a border for visual distinction */
+        }
+
+        figcaption {
+          margin-top: 5px;
+          font-size: 0.9em;
+          color: #333;
+          background-color: #f0f0f0; /* Light background to highlight text */
+          padding: 5px;
+          border-radius: 3px; /* Softens the edges of the caption box */
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .small-image {
+          max-width: 50%; /* Adjusts the image width to 50% of its container */
+          height: auto; /* Maintains the aspect ratio */
+          display: block; /* Ensures the image does not inline with text */
+          margin: 0 auto; /* Centers the image horizontally within its container */
+      }
+        li {
+            padding: 8px 0;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <h1 style="color: white;">CSCE 670 Final Project: BeatBuddy</h1>
+</header>
+
+
+<section id="video">
+  <h2>Overview</h2>
+  <p>Introducing <strong>BeatBuddy</strong>, a versatile music discovery tool designed to enhance how you interact with music. Whether you're searching by song title, artist, album, or even specific lyrics, BeatBuddy makes finding your favorite tunes effortless. Our innovative feature lets you explore music through random audio clips, not only identifying the song but also suggesting tracks with similar beats. This allows for a personalized and exciting way to discover music that truly resonates with you.</p>
+  <a href="https://www.youtube.com/watch?v=yedLzaK-9LQ" target="_blank">Watch our introductory video</a>
+</section>
+
+<section id="overview">
+  <h2>Motivation</h2>
+  <p>
+    BeatBuddy was created to tackle the challenge of navigating the vast ocean of music available today. With so many choices, finding music that strikes the right chord can be daunting. Our solution offers a streamlined, intuitive approach to music discovery, enhanced by a deep understanding of your preferences. By maintaining user profiles based on your ratings, BeatBuddy tailors recommendations specifically for you, ensuring that every song suggested aligns with your taste.
+  </p>
+  <p>
+    Imagine a tool that not only quickly identifies any music playing around you but also opens doors to new musical landscapes perfectly suited to your style. That's the magic of BeatBuddy. Dive into a personalized music experience that is as unique as you are, and let us make your journey through the world of music seamless and delightful. Try BeatBuddy today and start your adventure into a world where every note, beat, and lyric feels like it was handpicked just for you.
+  </p>
+</section>
+
+<section id="beatbuddy-details">
+  <h2>BeatBuddy: Technical Insights and Key Features</h2>
+  
+  <h3>Dive Deeper into Our Technical Approach</h3>
+  <p>Learn about the sophisticated technology and algorithms that power BeatBuddy. Our system not only suggests new music but also understands your musical preferences in depth. For a detailed view into our technical infrastructure and methods, check out our <a href="https://github.com/tamu-edu-students/csce-670-beatbuddy/tree/master/Technical-Details" target="_blank">Technical Details</a>.</p>
+  <img src="./screenshots/implementation.png" alt="Illustration of BeatBuddy's Key Technical Features" class="small-image">
+
+  <h3>Explore the Unique Features of BeatBuddy:</h3>
+  <ul>
+    <li><strong>Personalized Recommendations:</strong> Tailored song suggestions based on your individual music taste. This feature utilizes advanced techniques such as Variational Matrix Factorization to personalize your music discovery experience.</li>
+    <li><strong>Search by Lyrics:</strong> Easily find songs by typing in lyrics or phrases from the music you remember. Our text search leverages BM25 for initial retrieval, followed by COLBERT for reranking, ensuring high relevance and precision.</li>
+    <li><strong>Content-Based Recommendations:</strong> Discover songs with similar vibes using word2vec embeddings and numerical features that analyze the musical attributes of tracks.</li>
+    <li><strong>Audio Clip Search:</strong> Identify songs from any audio clip using state-of-the-art audio fingerprinting technology. We use spectrograms and local peak analysis to create hashes that efficiently match your clips to our database.</li>
+  </ul>
+</section>
+
+
+<section id="run-locally">
+  <h2>How to Run BeatBuddy Locally</h2>
+  <p>Interested in running BeatBuddy on your own machine? Follow these step-by-step instructions to set up the environment and get everything running locally:</p>
+  <ul>
+    <li>Clone the repository: <code>git clone https://github.com/tamu-edu-students/csce-670-beatbuddy.git</code></li>
+    <li>Install dependencies: <code>npm install</code> for Node.js environments and <code>pip install -r requirements.txt</code> for Python environments.</li>
+    <li>Run the frontend server: Navigate to the frontend directory with <code>cd web/frontend</code> and start the server with <code>npm start</code>.</li>
+    <li>Run the backend server: use <code>python app.py</code></li>
+    <li>Access the dataset for lyrics, mp3 files, and other necessary data at <a href="https://link-to-dataset" target="_blank">this link</a>. The dataset was entirely prepared by our team, utilizing the Genius API to acquire song lyrics and a Pytube for downloading MP3 files (for educational purposes only) to generate spectrograms. Numerical features obtained from the Spotify API and a dataset from <a href="https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset/data" target="_blank">Kaggle</a>. To simulate user behavior, we assumed preferences for certain genres, assigning higher ratings to liked genres and lower to disliked ones, thus trying to realistically mimic user interactions.</li>
+  </ul>
+</section>
+
+<section id="screenshots">
+  <h2>Screenshots</h2>
+  <p>Take a look at some screenshots of BeatBuddy in action:</p>
+  
+  <!-- Grouping two figures per row for better visibility and larger images -->
+  <div class="screenshot-group">
+    <figure>
+      <img src="./screenshots/welcome.png" alt="Welcome screen of BeatBuddy">
+      <figcaption>Welcome Screen</figcaption>
+    </figure>
+    <figure>
+      <img src="./screenshots/signup.png" alt="Sign up screen of BeatBuddy">
+      <figcaption>Sign Up</figcaption>
+    </figure>
+  </div>
+
+  <div class="screenshot-group">
+    <figure>
+      <img src="./screenshots/track_name.png" alt="Search by song name on BeatBuddy">
+      <figcaption>Search via Song Name</figcaption>
+    </figure>
+    <figure>
+      <img src="./screenshots/genre.png" alt="Search by genre name on BeatBuddy">
+      <figcaption>Search via Genre Name</figcaption>
+    </figure>
+  </div>
+  
+  <div class="screenshot-group">
+    <figure>
+      <img src="./screenshots/artist.png" alt="Search by artist name on BeatBuddy">
+      <figcaption>Search via Artist</figcaption>
+    </figure>
+    <figure>
+      <img src="./screenshots/lyrics.png" alt="Search by lyrics on BeatBuddy">
+      <figcaption>Search via Lyrics</figcaption>
+    </figure>
+  </div>
+
+  <div class="screenshot-group">
+    <figure>
+      <img src="./screenshots/recording.png" alt="Results for 'Don't Blame Me' by Taylor Swift clip">
+      <figcaption>Recording a 7-sec Audio Clip of 'Don't Blame Me' by Taylor Swift</figcaption>
+    </figure>
+    <figure>
+      <img src="./screenshots/recording_result.png" alt="Content-based and personalized recommendations on BeatBuddy">
+      <figcaption>Results</figcaption>
+    </figure>
+  </div>
+  
+  <div class="screenshot-group">
+    <figure>
+      <img src="./screenshots/recommendations.png" alt="Content-based and personalized recommendations on BeatBuddy">
+      <figcaption>Recommendations (Content and Personalized)</figcaption>
+    </figure>
+    <figure>
+      <img src="./screenshots/cold_start.png" alt="Top rated songs for new users to address cold start issues">
+      <figcaption>Globally Top Rated Songs for New Users</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+
+
+<section id="team">
+  <h2>Meet Our Team</h2>
+  <p>Get to know the brilliant minds behind BeatBuddy. This section includes information about our team members, their roles, and how their contributions shape the project.</p>
+  <ul>
+    <li><strong>Nagarjuna Kolloju</strong> - Developed the Audio Clip Search feature, worked on the backend, and contributed to dataset gathering.</li>
+    <li><strong>Praveen Kumar</strong> - Worked on the Text-Based Search feature, contributed to the backend, and was involved in dataset gathering.</li>
+    <li><strong>Druva Kumar</strong> - Focused on Content-Based Recommendations, developed the frontend, and managed the dataset.</li>
+    <li><strong>Yamini Preethi</strong> - Designed the Personalized Recommendations feature, developed the frontend, and participated in dataset gathering.</li>
+  </ul>
+</section>
+
+
+<section id="live">
+  <h2>Experience BeatBuddy Live</h2>
+  <p>Click the link below to try BeatBuddy in action. Experience the future of music discovery and find your next favorite song today!</p>
+  <p><strong>Note:</strong>For the best experience, we recommend using a desktop browser and enabling insecure content (we apologize for any inconvenience). You may also notice significant latency differences between our production server and local servers due to resource limitations.</p>
+  <a href="https://beatbuddy-seven.vercel.app/" target="_blank">Try it out</a>
+</section>
+
+<footer>
+    <p>BeatBuddy © 2024</p>
+</footer>
+</body>
+</html>
